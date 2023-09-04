@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Country Dropdown Plugin</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="allCountries.js"></script>
+    <script src="countryDropdown.js"></script>
+	<style>
+body {
+    margin:0;
+	padding:0;
+    font-family:arial
+}
+.country-dropdown-container {
+	position:relative;
+    margin:0;
+	padding:1px 3px;
+	width:55px;
+	height:25px;
+	border:solid 2px darkblue;
+	border-radius:6px 0 0 6px;
+	overflow:visible;
+	display:inline-block;
+	vertical-align:top;
+	z-index:2
+}
+.phone-input-container {
+    margin:0;
+	padding:1px 3px;
+	width:300px;
+	height:25px;
+	border:solid 2px darkblue;
+	border-left:0;
+	border-radius:0 6px 6px 0;
+	display:inline-block;
+	vertical-align:top;
+	z-index:1
+}
+	</style>
+</head>
+<body>
+  <form>
+    <br>Please enter your phonenumber
+    <br><div class="country-dropdown-container"></div><input type="text" class="phone-input-container" placeholder="Phonenumber" name="phonenumber">
+	<br><input type="submit">
+  </form>
+    <script>
+        $(document).ready(function() {
+            $('.country-dropdown-container').countryDropdown({
+				countries: { 
+					"AT": { name:"Österreich",  code:"+43"} ,
+					"DE": { name:"Deutschland", code:"+49"}, 
+					"CH": { name:"Schweiz",     code:"+41"}, 
+				}, 
+			    defaultCountry: "DE"
+			});
+        });
+    </script>
+</body>
+</html>

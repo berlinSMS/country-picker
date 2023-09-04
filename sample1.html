@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Country Dropdown Plugin</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="allCountries.js"></script>
+    <script src="countryDropdown.js"></script>
+</head>
+<body>
+    <div class="country-dropdown-container"/>
+    <script>
+        $(document).ready(function() {
+            $('.country-dropdown-container').countryDropdown({
+				countries: allCountries, 
+			    defaultCountry: "DE"
+			});
+        });
+    </script>
+</body>
+</html>
