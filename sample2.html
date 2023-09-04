@@ -3,15 +3,15 @@
 <head>
     <title>Country Dropdown Plugin</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="allCountries.js"></script>
-    <script src="countryDropdown.js"></script>
+    <script src="all-countries.js"></script>
+    <script src="bsms-country-picker.js"></script>
 	<style>
 body {
     margin:0;
 	padding:0;
     font-family:arial
 }
-.country-dropdown-container {
+.country-picker-container {
 	position:relative;
     margin:0;
 	padding:1px 3px;
@@ -41,12 +41,12 @@ body {
 <body>
   <form>
     <br>Please enter your phonenumber
-    <br><div class="country-dropdown-container"></div><input type="text" class="phone-input-container" placeholder="Phonenumber" name="phonenumber">
+    <br><div class="country-picker-container"></div><input type="text" class="phone-input-container" placeholder="Phonenumber" name="phonenumber">
 	<br><input type="submit">
   </form>
     <script>
         $(document).ready(function() {
-            $('.country-dropdown-container').countryDropdown({
+            $('.country-picker-container').bsmsCountryPicker({
 				countries: allCountries,
 			    defaultCountry: "IT"
 			});
