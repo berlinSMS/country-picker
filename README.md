@@ -10,9 +10,9 @@ Include jquery
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 ```
 
-Download bsms-country-picker.js and 
+Download bsms-country-picker.js and all-countries.js
 ```link
-https://raw.githubusercontent.com/berlinSMS/country-picker/main/bsms-code-digits.js
+https://raw.githubusercontent.com/berlinSMS/country-picker/main/bsms-country-picker.js
 https://raw.githubusercontent.com/berlinSMS/country-picker/main/all-countries.js
 ```
 

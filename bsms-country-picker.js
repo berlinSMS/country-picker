@@ -47,8 +47,8 @@
  (function($) {
     $.fn.bsmsCountryPicker = function(options) {
         
-		if (!options.className) options.className = 'bsms-country-code';
-		
+        if (!options.className) options.className = 'bsms-country-code';
+        
         const defaultStyles = `
 .${options.className} {
   position:relative;
@@ -78,7 +78,7 @@
    font-style: italic; 
    color: #e83e8c;
    min-width:200px;
-  display:inline-block;
+   display:inline-block;
 }
 .${options.className}       input[type="radio"] {
   display: none;
@@ -115,7 +115,7 @@
         const defaultSettings = {
             userStyles: defaultStyles,
             countries: {"DE": { name:"Germany", code:"+49"}},
-			defaultCountry: "DE",
+            defaultCountry: "DE",
             inputName: 'bsms-country-code',
             className: 'bsms-country-code'
         };
@@ -130,32 +130,46 @@
             const $dropdown = $(`<div class="${settings.className}"></div>`).appendTo($container);
 
             $.each(settings.countries, function(short, country) {
-				$dropdown.append(`
+                $dropdown.append(`
 <div>
 <input id="${short}" type="radio" name="${settings.inputName}" value="${country.code}"/>
 <label for="${short}">
-	<div>${country.code}</div>
-	<span>${country.name}</span>
+    <div>${country.code}</div>
+    <span>${country.name}</span>
 </label>
 </div>`);
             });
-			$dropdown.find(`input`).first()
-				.prop('checked', true);
-			$dropdown.find(`input#${settings.defaultCountry}`)
-				.prop('checked', true);
-			$container.append($dropdown);
+            $dropdown.find(`input`).first()
+                .prop('checked', true);
+            $dropdown.find(`input#${settings.defaultCountry}`)
+                .prop('checked', true);
+            $container.append($dropdown);
 
             $dropdown.hover(()=>{
-				const $checkedInput = $dropdown.find(`input:checked`).closest('div');
-				$dropdown.scrollTop( $dropdown.scrollTop() + $checkedInput.position().top );            
+                const $checkedInput = $dropdown.find(`input:checked`).closest('div');
+                $dropdown.scrollTop( $dropdown.scrollTop() + $checkedInput.position().top );            
             });
 
-            $dropdown.click(()=>{
-				$dropdown
-					.fadeOut(1)
-					.delay(1)
-					.fadeIn(1);
+            $dropdown.click(event => {
+                $dropdown
+                    .fadeOut(1)
+                    .delay(1)
+                    .fadeIn(1);
             });
+
+            $dropdown.change(event => {
+                $container.val($(event.target).val());
+            });
+
+            //select and trigger default            
+            var defaultInput = $dropdown.find(`input#${settings.defaultCountry}`);
+            if (!defaultInput.length) {
+                defaultInput = $dropdown.find(`input`).first();
+            }
+            defaultInput
+                .prop('checked', true)
+                .trigger('change');
+            
         });
     };
 })(jQuery);
