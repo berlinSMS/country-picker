@@ -1,11 +1,12 @@
 # jQuery CountryPicker
 [Homepage](https://www.berlinsms.de/)
 
+# Description
+A jquery-plugin to pick a country-code in a formular
+
 # Usage
 
-Include jquery
-
-    
+Include jquery    
 ```html
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 ```
@@ -29,7 +30,7 @@ $('.plugin-container').bsmsCountryPicker();
 
 Make sure, the script is fully loaded, before you assign country-picker, e.g. use jquerys 'ready'
 ```js
-$(document).ready(function () {
+$(document).ready(()=>{
     $('.plugin-container').bsmsCountryPicker();
 });    
 ```

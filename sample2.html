@@ -3,8 +3,8 @@
 <head>
     <title>Country Dropdown Plugin</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="all-countries.js"></script>
-    <script src="bsms-country-picker.js"></script>
+    <script src="https://static.berlinsms.de/toolsforcoder/country-picker/all-countries.js"></script>
+    <script src="https://static.berlinsms.de/toolsforcoder/country-picker/bsms-country-picker.js"></script>
 	<style>
 body {
     margin:0;
@@ -45,7 +45,7 @@ body {
 	<br><input type="submit">
   </form>
     <script>
-        $(document).ready(function() {
+        $(() => {
             $('.country-picker-container').bsmsCountryPicker({
 				countries: allCountries,
 			    defaultCountry: "IT"
