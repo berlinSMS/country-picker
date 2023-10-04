@@ -5,22 +5,19 @@
 A jquery-plugin to pick a country-code in a formular
 
 # Usage
+Download js and css for bsms-country-picker
+```link
+https://static.berlinsms.de/toolsforcoder/country-picker/dist/bsms-country-picker.min.js
+https://static.berlinsms.de/toolsforcoder/country-picker/dist/all-countries.min.js
+https://static.berlinsms.de/toolsforcoder/country-picker/distbsms-country-picker.css
+```
 
-Include jquery    
+Include jquery and js+css for bsms-country-picker 
 ```html
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-```
-
-Download bsms-country-picker.js and all-countries.js
-```link
-https://raw.githubusercontent.com/berlinSMS/country-picker/main/bsms-country-picker.js
-https://raw.githubusercontent.com/berlinSMS/country-picker/main/all-countries.js
-```
-
-Include bsms-country-picker and all-countries.js
-```html
-<script src="bsms-country-picker.js"></script>
-<script src="all-countries.js"></script>
+<link rel="stylesheet" href="bsms-country-picker.css">
+<script src="all-countries.min.js"></script>
+<script src="bsms-country-picker.min.js"></script>
 ```
 
 Find your jquery-container and assign country-picker
@@ -56,6 +53,5 @@ $(document).ready(function() {
 |----------------|-------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------|
 | countries      | Dictionary of available countries, each key must be an uniqued identifier of a country, values are dictionaries of name and code of the country | {"DE": { name:"Germany", code:"+49"}} |
 | defaultCountry | identifier of a country, which ist selected initialy, has to be a key in the countries-dictionary                                               | DE                                    |
-| inputName      | name-attribute of a hidden input-tag, which the plugin includes to the form                                                                     | bsms-country-code                     |
-| className      | for costum-css, class of the dropdown-container                                                                                                 | bsms-country-code                     |         
+| inputName      | name-attribute of a hidden input-tag, which the plugin includes to the form                                                                     | bsms-country-code                     |         
                                                                                                                                                                            

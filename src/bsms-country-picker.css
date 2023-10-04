@@ -1,0 +1,61 @@
+.bsms-country-code {
+  position:relative;
+  display: inline-block;
+  top:0px;
+  left:0px;
+  width:55px;
+}
+.bsms-country-code:hover {
+  background-color: RGBA(240,240,240,0.9);
+  width:280px;
+  max-height:300px;
+  top:2px;
+  overflow-x:visible;
+  overflow-y: scroll; 
+}
+.bsms-country-code       input[type="radio"] + label{
+   font-family:arial
+}
+.bsms-country-code       input[type="radio"] + label div{
+   font-weight: bold; 
+   color: darkblue;
+   width:50px;
+   display:inline-block
+}
+.bsms-country-code       input[type="radio"] + label span {
+   font-style: italic; 
+   color: #e83e8c;
+   min-width:200px;
+   display:inline-block;
+}
+.bsms-country-code       input[type="radio"] {
+  display: none;
+}
+.bsms-country-code       input[type="radio"] + label {
+  display: none;
+}
+.bsms-country-code       input[type="radio"]:checked + label {
+  color: #28AADC;
+  display: inline-block;
+}
+.bsms-country-code       input[type="radio"]:checked + label span {
+  display: none;
+}
+.bsms-country-code       input[type="radio"]:checked + label div:after {
+  content:"\25BE";
+}
+.bsms-country-code:hover input[type="radio"] + label {
+  display: inline-block;
+}
+.bsms-country-code:hover input[type="radio"] + label:hover {
+  background-color: lightblue;
+}
+.bsms-country-code:hover input[type="radio"]:checked + label {
+  background-color: lightgrey;
+}
+.bsms-country-code:hover input[type="radio"]:checked + label span {
+  display:inline-block
+}
+.bsms-country-code:hover input[type="radio"]:checked + label div:after {
+  content:''
+}
