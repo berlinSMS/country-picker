@@ -8,7 +8,6 @@ A jquery-plugin to pick a country-code in a formular
 Download js and css for bsms-country-picker
 ```link
 https://static.berlinsms.de/toolsforcoder/country-picker/dist/bsms-country-picker.min.js
-https://static.berlinsms.de/toolsforcoder/country-picker/dist/all-countries.min.js
 https://static.berlinsms.de/toolsforcoder/country-picker/distbsms-country-picker.css
 ```
 
@@ -16,7 +15,6 @@ Include jquery and js+css for bsms-country-picker
 ```html
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <link rel="stylesheet" href="bsms-country-picker.css">
-<script src="all-countries.min.js"></script>
 <script src="bsms-country-picker.min.js"></script>
 ```
 
@@ -49,9 +47,9 @@ $(document).ready(function() {
 # Options
 
 
-| Option         | DESCRIPTION                                                                                                                                     | DEFAULT                               |
-|----------------|-------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------|
-| countries      | Dictionary of available countries, each key must be an uniqued identifier of a country, values are dictionaries of name and code of the country | {"DE": { name:"Germany", code:"+49"}} |
-| defaultCountry | identifier of a country, which ist selected initialy, has to be a key in the countries-dictionary                                               | DE                                    |
-| inputName      | name-attribute of a hidden input-tag, which the plugin includes to the form                                                                     | bsms-country-code                     |         
+| Option         | DESCRIPTION                                                                                                                                     | DEFAULT           |
+|----------------|-------------------------------------------------------------------------------------------------------------------------------------------------|-------------------|
+| countries      | Dictionary of available countries, each key must be an uniqued identifier of a country, values are dictionaries of name and code of the country | all countries     |
+| defaultCountry | identifier of a country, which ist selected initialy, has to be a key in the countries-dictionary                                               | DE                |
+| inputName      | name-attribute of a hidden input-tag, which the plugin includes to the form                                                                     | bsms-country-code |         
                                                                                                                                                                            

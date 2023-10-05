@@ -12,7 +12,6 @@ module.exports = {
     plugins: [
         new CopyWebpackPlugin({
             patterns: [
-                { from: './src/all-countries.js', to: 'all-countries.min.js' },
                 { from: './src/bsms-country-picker.css', to: 'bsms-country-picker.css' },
             ],
         }),
