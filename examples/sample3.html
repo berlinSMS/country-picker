@@ -1,61 +1,114 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Country Dropdown Plugin</title>
-	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-	<link rel="stylesheet" href="../dist/bsms-country-picker.css">
-	<script src="../dist/bsms-country-picker.min.js"></script>
-	<style>
-		body {
-			margin: 0;
-			padding: 0;
-			font-family: arial
-		}
+    <title>Country Dropdown Plugin</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="../dist/bsms-country-picker.css">
+    <script src="../dist/bsms-country-picker.min.js"></script>
+	
+<!--
+    <script src="../src/bsms-country-picker.js"></script>
+    <link rel="stylesheet" href="../src/bsms-country-picker.css">
+-->
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: arial
+        }
 
-		.country-picker-container {
-			position: relative;
-			margin: 0;
-			padding: 1px 3px;
-			width: 55px;
-			height: 25px;
-			border: solid 2px darkblue;
-			border-radius: 6px 0 0 6px;
-			overflow: visible;
-			display: inline-block;
-			vertical-align: top;
-			z-index: 2
-		}
+        .country-picker-container {
+            position: relative;
+            margin: 0;
+            padding: 1px 3px;
+            width: 55px;
+            height: 25px;
+            border: solid 2px darkblue;
+            border-radius: 6px 0 0 6px;
+            overflow: visible;
+            display: inline-block;
+            vertical-align: top;
+            z-index: 2
+        }
 
-		.phone-input-container {
-			margin: 0;
-			padding: 1px 3px;
-			width: 300px;
-			height: 25px;
-			border: solid 2px darkblue;
-			border-left: 0;
-			border-radius: 0 6px 6px 0;
-			display: inline-block;
-			vertical-align: top;
-			z-index: 1
-		}
-	</style>
+        .phone-input-container {
+            margin: 0;
+            padding: 1px 3px;
+            width: 300px;
+            height: 25px;
+            border: solid 2px darkblue;
+            border-left: 0;
+            border-radius: 0 6px 6px 0;
+            display: inline-block;
+            vertical-align: top;
+            z-index: 1
+        }
+    </style>
 </head>
 <body>
-  <form>
-    <br>Please enter your phonenumber
-    <br><div class="country-picker-container"></div><input type="text" class="phone-input-container" placeholder="Phonenumber" name="phonenumber">
-	<br><input type="submit">
-  </form>
+    <form>
+        <br>Please enter your phonenumber
+        <br><div class="country-picker-container"></div><input type="text" class="phone-input-container" placeholder="Phonenumber" name="phonenumber">
+        <br><input type="submit">
+    </form>
+
+
+    <br />
+    <br /><button id="getCountry">getCountry()</button>
+    <br />
+    <br /><button id="getCountryByPhonenumberPlus49">getCountryByPhonenumber('+49')</button>
+    <br /><button id="getCountryByPhonenumberPlus43">getCountryByPhonenumber('+43')</button>
+    <br /><button id="getCountryByPhonenumberPlus41">getCountryByPhonenumber('+41')</button>
+    <br />
+    <br /><button id="setCountry-DE">setCountry('DE')</button>
+    <br /><button id="setCountry-AT">setCountry('AT')</button>
+    <br /><button id="setCountry-CH">setCountry('CH')</button>
+    <br />
+    <br /><button id="setByPhonenumberPlus49">setByPhonenumber('+49')</button>
+    <br /><button id="setByPhonenumberPlus43">setByPhonenumber('+43')</button>
+    <br /><button id="setByPhonenumberPlus41">setByPhonenumber('+41')</button>
+    <br />
+    <br /><button id="setByPhonenumber491701234567">setByPhonenumber('491701234567')</button>
+    <br /><button id="setByPhonenumber436761234567">setByPhonenumber('436761234567')</button>
+    <br /><button id="setByPhonenumber417766554433">setByPhonenumber('417766554433')</button>
+    <br />
+    <br /><button id="setByPhonenumberPlus491701234567">setByPhonenumber('+491701234567')</button>
+    <br /><button id="setByPhonenumberPlus436761234567">setByPhonenumber('+436761234567')</button>
+    <br /><button id="setByPhonenumberPlus417766554433">setByPhonenumber('+417766554433')</button>
+    <br />
+    <br /><button id="setByPhonenumber00491701234567">setByPhonenumber('00491701234567')</button>
+    <br /><button id="setByPhonenumber00436761234567">setByPhonenumber('00436761234567')</button>
+    <br /><button id="setByPhonenumber00417766554433">setByPhonenumber('00417766554433')</button>
+
     <script>
         $(() => {
-            $('.country-picker-container').bsmsCountryPicker({
-				countries: { 
-					"AT": { name:"Österreich",  code:"+43"} ,
-					"DE": { name:"Deutschland", code:"+49"}, 
-					"CH": { name:"Schweiz",     code:"+41"}, 
-				}, 
-			    defaultCountry: "DE"
-			});
+            const $countryPicker = $('.country-picker-container').bsmsCountryPicker({
+                countries: {
+                    "AT": { name: "Österreich", code: "+43" },
+                    "DE": { name: "Deutschland", code: "+49" },
+                    "CH": { name: "Schweiz", code: "+41" },
+                },
+                defaultCountry: "DE"
+            });
+            $('#getCountry').click(() => { alert($countryPicker.getCountry()); });
+            $('#getCountryByPhonenumberPlus49').click(() => { alert( $countryPicker.getCountryByPhonenumber('+49') ); });
+            $('#getCountryByPhonenumberPlus43').click(() => { alert( $countryPicker.getCountryByPhonenumber('+43') ); });
+            $('#getCountryByPhonenumberPlus41').click(() => { alert( $countryPicker.getCountryByPhonenumber('+41') ); });
+            $('#setCountry-DE').click(() => { $countryPicker.setCountry('DE'); });
+            $('#setCountry-AT').click(() => { $countryPicker.setCountry('AT'); });
+            $('#setCountry-CH').click(() => { $countryPicker.setCountry('CH'); });
+            $('#setByPhonenumberPlus49').click(() => { $countryPicker.setByPhonenumber('+49'); });
+            $('#setByPhonenumberPlus43').click(() => { $countryPicker.setByPhonenumber('+43'); });
+            $('#setByPhonenumberPlus41').click(() => { $countryPicker.setByPhonenumber('+41'); });
+            $('#setByPhonenumber491701234567').click(() => { $countryPicker.setByPhonenumber('491701234567'); });
+            $('#setByPhonenumber436761234567').click(() => { $countryPicker.setByPhonenumber('436761234567'); });
+            $('#setByPhonenumber417766554433').click(() => { $countryPicker.setByPhonenumber('417766554433'); });
+            $('#setByPhonenumberPlus491701234567').click(() => { $countryPicker.setByPhonenumber('+491701234567'); });
+            $('#setByPhonenumberPlus436761234567').click(() => { $countryPicker.setByPhonenumber('+436761234567'); });
+            $('#setByPhonenumberPlus417766554433').click(() => { $countryPicker.setByPhonenumber('+417766554433'); });
+            $('#setByPhonenumber00491701234567').click(() => { $countryPicker.setByPhonenumber('00491701234567'); });
+            $('#setByPhonenumber00436761234567').click(() => { $countryPicker.setByPhonenumber('00436761234567'); });
+            $('#setByPhonenumber00417766554433').click(() => { $countryPicker.setByPhonenumber('00417766554433'); });
         });
     </script>
 </body>

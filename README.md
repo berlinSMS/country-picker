@@ -46,10 +46,18 @@ $(document).ready(function() {
 
 # Options
 
-
 | Option         | DESCRIPTION                                                                                                                                     | DEFAULT           |
 |----------------|-------------------------------------------------------------------------------------------------------------------------------------------------|-------------------|
 | countries      | Dictionary of available countries, each key must be an uniqued identifier of a country, values are dictionaries of name and code of the country | all countries     |
 | defaultCountry | identifier of a country, which ist selected initialy, has to be a key in the countries-dictionary                                               | DE                |
 | inputName      | name-attribute of a hidden input-tag, which the plugin includes to the form                                                                     | bsms-country-code |         
+                                                                                                                                                                           
+
+# Functions
+
+| Option           | DESCRIPTION                                   | PARAMETER          | RETURN             |
+|------------------|-----------------------------------------------|--------------------|--------------------|
+| setCountry       | Sets the country-picker to a specific country | country-short-code | jQuery caller      |
+| setByPhonenumber | Sets the country-picker to a specific country | phonenumber        | jQuery caller      | 
+| val              | Gets the selected country-code                |                    | string countryCode |         
                                                                                                                                                                            

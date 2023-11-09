@@ -44,10 +44,12 @@
  * 
  */
  
- (function($) {
-    $.fn.bsmsCountryPicker = function(options) {                
+(function($) {
+    $.fn.bsmsCountryPicker = function (options) {     
+        
+        const caller = this;
 
-        this.allCountries = {
+        caller.allCountries = {
             "AF": { name: "Afghanistan", code: "+93" },
             "AL": { name: "Albania", code: "+355" },
             "DZ": { name: "Algeria", code: "+213" },
@@ -289,8 +291,7 @@
         };
 
         const settings = $.extend({}, defaultSettings, options);
-
-        return this.each(function() {
+        caller.each(function() {
             const $container = $(this);
             const $dropdown = $(`<div class="bsms-country-code"></div>`).appendTo($container);
 
@@ -334,7 +335,47 @@
             defaultInput
                 .prop('checked', true)
                 .trigger('change');
-            
+
+            this.setCountry = country =>
+                $dropdown.find(`input#${country}`)
+                    .prop('checked', true)
+                    .trigger('change');
+
+            return this;
         });
+
+        caller.countries = settings.countries;
+
+        caller.setCountry = country => {
+            caller.each((i,o)=>{
+                o.setCountry(country);
+            });
+            return caller;
+        }
+
+        caller.getCountry = () => 
+            caller.getCountryByPhonenumber(caller.val());    
+
+        caller.getCountryByPhonenumber = phonenumber => {
+            return Object.keys(caller.countries).find(does_match_phonenumber);
+
+            function does_match_phonenumber(key) {
+                const code = caller.countries[key].code;
+                if (code == phonenumber.substr(0, code.length))
+                    return true;
+                if (code == '+' + phonenumber.substr(0, code.length - 1))
+                    return true;
+                if ('00' == phonenumber.substr(0, 2) && code === '+' + phonenumber.substr(2, code.length - 1))
+                    return true;
+                return false;
+            }
+            return caller;
+        }
+
+        caller.setByPhonenumber = phonenumber => 
+            caller.setCountry(caller.getCountryByPhonenumber(phonenumber));
+
+        return caller;
+
     };
 })(jQuery);
